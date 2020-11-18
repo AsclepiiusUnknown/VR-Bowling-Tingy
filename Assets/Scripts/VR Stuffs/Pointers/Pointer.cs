@@ -24,10 +24,17 @@ public class Pointer : MonoBehaviour
     public float cursorScaleFactor = .25f;
 
     [Space]
+    public Color invalidLocation = Color.red;
+    public Color validLocation = Color.green;
+
+    [Space]
     public TeleportEvent onTeleportRequested;
 
     private VrControllerInput input;
     private bool isPointerActive = false;
+
+    private MeshRenderer tracerRender;
+    private MeshRenderer cursorRender;
 
     private void Start()
     {
@@ -65,6 +72,12 @@ public class Pointer : MonoBehaviour
 
         tracer.transform.parent = transform;
         cursor.transform.parent = transform;
+
+        tracer.SetActive(false);
+        cursor.SetActive(false);
+
+        tracerRender = tracer.GetComponent<MeshRenderer>();
+        cursorRender = cursor.GetComponent<MeshRenderer>();
     }
 
     private void Update()
@@ -85,6 +98,9 @@ public class Pointer : MonoBehaviour
 
                 cursor.transform.position = hit.point;
                 cursor.transform.localScale = Vector3.one * cursorScaleFactor;
+
+                tracerRender.material.color = validLocation;
+                cursorRender.material.color = validLocation;
             }
             else
             {
@@ -96,6 +112,9 @@ public class Pointer : MonoBehaviour
 
                 cursor.transform.position = transform.position + transform.forward * maxPointerLength;
                 cursor.transform.localScale = Vector3.one * cursorScaleFactor;
+                
+                tracerRender.material.color = invalidLocation;
+                cursorRender.material.color = invalidLocation;
             }
         }
     }
@@ -116,9 +135,9 @@ public class Pointer : MonoBehaviour
 
     void OnTeleportPressed(InputEventArgs _args)
     {
-        if (isPointerActive)
+        if (isPointerActive && Position != Vector3.zero)
         {
-            
+            onTeleportRequested.Invoke(Position);
         }
     }
 }

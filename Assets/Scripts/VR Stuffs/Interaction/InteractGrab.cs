@@ -68,9 +68,6 @@ public class InteractGrab : MonoBehaviour
         heldObject = collidingObject;
         collidingObject = null;
 
-        FixedJoint joint = AddJoint();
-        joint.connectedBody = heldObject.Rigidbody;
-
         if (heldObject.AttchPoint != null)
         {
             heldObject.transform.position = transform.position - (heldObject.AttchPoint.position - heldObject.transform.position);
@@ -80,6 +77,9 @@ public class InteractGrab : MonoBehaviour
         {
             heldObject.transform.position = transform.position;
         }
+
+        FixedJoint joint = AddJoint();
+        joint.connectedBody = heldObject.Rigidbody;
 
         grabbed.Invoke(new InteractionEventArgs(input.Controller, heldObject.Rigidbody, heldObject.Collider));
         heldObject.OnObjectGrabbed(input.Controller);

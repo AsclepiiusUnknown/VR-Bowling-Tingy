@@ -38,13 +38,13 @@ public class VrControllerInput : MonoBehaviour
         controller = _controller;
 
         grab.AddOnStateDownListener(OnGrabDown, controller.inputSource);
-        grab.AddOnStateDownListener(OnGrabUp, controller.inputSource);
+        grab.AddOnStateUpListener(OnGrabUp, controller.inputSource);
         pointer.AddOnStateDownListener(OnPointerDown, controller.inputSource);
-        pointer.AddOnStateDownListener(OnPointerUp, controller.inputSource);
+        pointer.AddOnStateUpListener(OnPointerUp, controller.inputSource);
         use.AddOnStateDownListener(OnUseDown, controller.inputSource);
-        use.AddOnStateDownListener(OnUseUp, controller.inputSource);
+        use.AddOnStateUpListener(OnUseUp, controller.inputSource);
         teleport.AddOnStateDownListener(OnTeleportDown, controller.inputSource);
-        teleport.AddOnStateDownListener(OnTeleportUp, controller.inputSource);
+        teleport.AddOnStateUpListener(OnTeleportUp, controller.inputSource);
         touchpadAxis.AddOnChangeListener(OnTouchpadChanged, controller.inputSource);
     }
 
@@ -61,7 +61,7 @@ public class VrControllerInput : MonoBehaviour
 
     void OnGrabUp(SteamVR_Action_Boolean _action, SteamVR_Input_Sources _source)
     {
-        onGrabPressed.Invoke(GenerateArgs());
+        onGrabReleased.Invoke(GenerateArgs());
     }
     #endregion
 
