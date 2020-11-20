@@ -44,6 +44,8 @@ GameObject:
   - component: {fileID: 6222282438754517333}
   - component: {fileID: 6222282438754517330}
   - component: {fileID: 5100427083080460192}
+  - component: {fileID: 7001173129471278684}
+  - component: {fileID: 4711564104297444224}
   m_Layer: 0
   m_Name: Pin
   m_TagString: Pin
@@ -136,7 +138,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6223294718561614390}
-  m_Material: {fileID: 13400000, guid: aaaf220faa1badc41a94ea77297fed3a, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -178,3 +180,31 @@ MonoBehaviour:
   onUnused:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7001173129471278684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6223294718561614390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 736f44694e6309a40a0725f55045b9c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pin: {fileID: 6223294718561614390}
+  pinTag: Pin
+--- !u!136 &4711564104297444224
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6223294718561614390}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.09270021
+  m_Height: 0.6
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.32, z: 0}

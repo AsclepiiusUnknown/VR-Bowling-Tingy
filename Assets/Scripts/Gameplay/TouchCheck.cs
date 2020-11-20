@@ -18,10 +18,11 @@ public class TouchCheck : MonoBehaviour
         }
     }
 
-    private void PinDown()
+    private IEnumerator PinDown()
     {
         GameManager.pinsDown++;
         print("Pin Down. Great Job!!");
-        Destroy(pin, 3);
+        yield return new WaitForSeconds(3);
+        pin.SetActive(false);
     }
 }
