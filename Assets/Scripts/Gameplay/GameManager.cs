@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static int pinsDown = 0;
-    public static Mode mode = Mode.None;
+    public static Mode mode = Mode.VR;
 
     public Light pinLight;
     Color[] lightColors = new Color[6];
@@ -49,6 +49,9 @@ public class GameManager : MonoBehaviour
 
         SaveBallData();
         SavePinData();
+
+        VrHelper.SetEnabled(true);
+        GameManager.mode = Mode.VR;
     }
 
     void SavePinData()
