@@ -25,7 +25,7 @@ public class MenuPointer : MonoBehaviour
     {
         //Use default or distance
         PointerEventData data = inputModule.GetData();
-        float targetLength = (data.pointerCurrentRaycast.distance==0)?defaultLength:data.pointerCurrentRaycast.distance;
+        float targetLength = (data.pointerCurrentRaycast.distance == 0) ? defaultLength : data.pointerCurrentRaycast.distance;
 
         //Raycast
         RaycastHit hit = CreateRaycast(targetLength);

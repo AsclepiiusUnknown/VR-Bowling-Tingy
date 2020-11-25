@@ -15,6 +15,7 @@ public class VrControllerInput : MonoBehaviour
     public SteamVR_Action_Boolean pointer;
     public SteamVR_Action_Boolean use;
     public SteamVR_Action_Boolean teleport;
+    public SteamVR_Action_Boolean touch;
     public SteamVR_Action_Vector2 touchpadAxis;
 
     public InputEvent onGrabPressed = new InputEvent();
@@ -47,6 +48,7 @@ public class VrControllerInput : MonoBehaviour
         teleport.AddOnStateUpListener(OnTeleportUp, controller.inputSource);
         touchpadAxis.AddOnChangeListener(OnTouchpadChanged, controller.inputSource);
     }
+
 
     private InputEventArgs GenerateArgs()
     {
