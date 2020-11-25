@@ -5,39 +5,53 @@ using UnityEngine.XR;
 
 public class VrHelper
 {
-    private static List<XRDisplaySubsystem> displays = new List<XRDisplaySubsystem>();
+    // private static List<XRDisplaySubsystem> displays = new List<XRDisplaySubsystem>();
 
-    public static void SetEnabled(bool _active)
+    // public static void SetEnabled(bool _active)
+    // {
+    //     displays.Clear();
+    //     SubsystemManager.GetInstances(displays);
+
+    //     foreach (XRDisplaySubsystem system in displays)
+    //     {
+    //         if (_active)
+    //         {
+    //             system.Start();
+    //         }
+    //         else
+    //         {
+    //             system.Stop();
+    //         }
+    //     }
+    // }
+
+    // public static bool IsEnabled()
+    // {
+    //     displays.Clear();
+    //     SubsystemManager.GetInstances(displays);
+
+    //     foreach (XRDisplaySubsystem system in displays)
+    //     {
+    //         if (system.running)
+    //         {
+    //             return true;
+    //         }
+    //     }
+
+    //     return false;
+    // }
+
+    public static bool VRIsPresent()
     {
-        displays.Clear();
-        SubsystemManager.GetInstances(displays);
-
-        foreach (XRDisplaySubsystem system in displays)
+        var xrDisplaySubsystems = new List<XRDisplaySubsystem>();
+        SubsystemManager.GetInstances<XRDisplaySubsystem>(xrDisplaySubsystems);
+        foreach (var xrDisplay in xrDisplaySubsystems)
         {
-            if (_active)
-            {
-                system.Start();
-            }
-            else
-            {
-                system.Stop();
-            }
-        }
-    }
-
-    public static bool IsEnabled()
-    {
-        displays.Clear();
-        SubsystemManager.GetInstances(displays);
-
-        foreach (XRDisplaySubsystem system in displays)
-        {
-            if (system.running)
+            if (xrDisplay.running)
             {
                 return true;
             }
         }
-
         return false;
     }
 }

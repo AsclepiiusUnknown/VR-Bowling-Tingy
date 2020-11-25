@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        mode = (VrHelper.VRIsPresent()) ? Mode.VR : Mode.PC;
+
         DontDestroyOnLoad(gameObject);
 
         for (int i = 0; i < lightColors.Length; i++)
@@ -49,9 +51,6 @@ public class GameManager : MonoBehaviour
 
         SaveBallData();
         SavePinData();
-
-        VrHelper.SetEnabled(true);
-        GameManager.mode = Mode.VR;
     }
 
     void SavePinData()
@@ -137,7 +136,6 @@ public class GameManager : MonoBehaviour
 [System.Serializable]
 public enum Mode
 {
-    None,
     VR,
     PC
 }
