@@ -10,16 +10,18 @@ public class Bowler : MonoBehaviour
     public Image powerBar;
     public float barFillSpeed = .1f;
     bool isFilling = true;
-    [MinMaxSlider(0, 2, true)]
+    [MinMaxSlider(0, .1f, true)]
     public Vector2 swayMinMax;
     [MinMaxSlider(0, 1000, true)]
     public Vector2 powerMinMax;
     bool canFill = false;
     PCGrabber grabber;
+    float barFillSpeedVal;
 
     private void Awake()
     {
         grabber = GetComponent<PCGrabber>();
+        barFillSpeedVal = barFillSpeed;
     }
 
     private void Update()
@@ -43,8 +45,12 @@ public class Bowler : MonoBehaviour
                 isFilling = true;
             }
 
-            powerBar.fillAmount += (isFilling) ? barFillSpeed : -barFillSpeed;
-            barFillSpeed += barFillSpeed / 1000;
+            powerBar.fillAmount += (isFilling) ? barFillSpeedVal : -barFillSpeedVal;
+            barFillSpeedVal += barFillSpeedVal / 1000;
+        }
+        else if (barFillSpeedVal != barFillSpeed)
+        {
+            barFillSpeedVal = barFillSpeed;
         }
         // if (Input.GetKeyDown(KeyCode.Q))
         // {

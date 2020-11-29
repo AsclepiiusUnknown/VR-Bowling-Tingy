@@ -24640,7 +24640,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerBar: {fileID: 1754782698}
   barFillSpeed: 0.02
-  swayMinMax: {x: 0, y: 0.1}
+  swayMinMax: {x: 0, y: 0.05}
   powerMinMax: {x: 0, y: 1000}
 --- !u!23 &1949138087
 MeshRenderer:
