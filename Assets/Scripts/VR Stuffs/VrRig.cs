@@ -21,7 +21,7 @@ public class VrRig : MonoBehaviour
     {
         bool isVR = VrHelper.VRIsPresent();
         GameManager.mode = (isVR) ? Mode.VR : Mode.PC;
-        gameObject.SetActive(isVR);
+        // gameObject.SetActive(isVR);
 
         if (instance == null)
         {

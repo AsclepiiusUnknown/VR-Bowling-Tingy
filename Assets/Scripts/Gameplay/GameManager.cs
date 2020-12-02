@@ -19,7 +19,9 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        mode = (VrHelper.VRIsPresent()) ? Mode.VR : Mode.PC;
+        print(VrHelper.VRIsPresent());
+
+        // mode = (VrHelper.VRIsPresent()) ? Mode.VR : Mode.PC;
 
         DontDestroyOnLoad(gameObject);
 
