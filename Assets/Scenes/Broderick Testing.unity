@@ -7229,7 +7229,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!136 &540816325
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7878,7 +7878,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0.4999991, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.2550001, y: 0.9499992, z: -0.25500038}
+  m_ConnectedAnchor: {x: 0.81421256, y: 0.737492, z: 4.852424}
   serializedVersion: 2
   m_Spring: 100
   m_Damper: 10

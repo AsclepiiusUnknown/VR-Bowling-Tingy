@@ -5,9 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-    public void Play()
+    public void Play(string mode)
     {
-        GameManager.mode = (VrHelper.VRIsPresent()) ? Mode.VR : Mode.PC;
+        switch (mode)
+        {
+            case "PC":
+                GameManager.mode = Mode.PC;
+                break;
+            case "VR":
+                GameManager.mode = Mode.VR;
+                break;
+            default:
+                GameManager.mode = Mode.PC;
+                break;
+        }
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }

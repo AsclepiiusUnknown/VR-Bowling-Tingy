@@ -19,9 +19,8 @@ public class VrRig : MonoBehaviour
 
     private void Awake()
     {
-        bool isVR = VrHelper.VRIsPresent();
-        GameManager.mode = (isVR) ? Mode.VR : Mode.PC;
-        // gameObject.SetActive(isVR);
+        bool isVR = GameManager.mode == Mode.VR;
+        gameObject.SetActive(isVR);
 
         if (instance == null)
         {

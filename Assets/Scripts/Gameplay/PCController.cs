@@ -34,6 +34,9 @@ public class PCController : MonoBehaviour
         // Lock cursor
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        bool isVR = GameManager.mode == Mode.PC;
+        gameObject.SetActive(isVR);
     }
 
     void Update()

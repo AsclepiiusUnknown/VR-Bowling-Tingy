@@ -82,6 +82,9 @@ public class Pointer : MonoBehaviour
 
     private void Update()
     {
+        if(input == null)
+        return;
+
         transform.rotation = input.transform.rotation;
         transform.position = input.transform.position;
 
