@@ -36,8 +36,16 @@ public class Pointer : MonoBehaviour
     private MeshRenderer tracerRender;
     private MeshRenderer cursorRender;
 
+    bool bail = false;
+
     private void Start()
     {
+        if (input == null)
+        {
+            bail = true;
+            return;
+        }
+
         switch (source)
         {
             case SteamVR_Input_Sources.LeftHand:
@@ -82,8 +90,8 @@ public class Pointer : MonoBehaviour
 
     private void Update()
     {
-        if(input == null)
-        return;
+        if (bail)
+            return;
 
         transform.rotation = input.transform.rotation;
         transform.position = input.transform.position;
@@ -115,7 +123,7 @@ public class Pointer : MonoBehaviour
 
                 cursor.transform.position = transform.position + transform.forward * maxPointerLength;
                 cursor.transform.localScale = Vector3.one * cursorScaleFactor;
-                
+
                 tracerRender.material.color = invalidLocation;
                 cursorRender.material.color = invalidLocation;
             }

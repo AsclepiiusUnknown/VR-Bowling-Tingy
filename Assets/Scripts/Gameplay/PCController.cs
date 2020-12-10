@@ -26,7 +26,6 @@ public class PCController : MonoBehaviour
     public float pushPower = 2;
     public float weight = 6;
 
-
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -37,6 +36,8 @@ public class PCController : MonoBehaviour
 
         bool isVR = GameManager.mode == Mode.PC;
         gameObject.SetActive(isVR);
+
+        VrHelper.SetEnabled(false);
     }
 
     void Update()

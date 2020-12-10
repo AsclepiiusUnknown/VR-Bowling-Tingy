@@ -5,41 +5,41 @@ using UnityEngine.XR;
 
 public class VrHelper
 {
-    // private static List<XRDisplaySubsystem> displays = new List<XRDisplaySubsystem>();
+    private static List<XRDisplaySubsystem> displays = new List<XRDisplaySubsystem>();
 
-    // public static void SetEnabled(bool _active)
-    // {
-    //     displays.Clear();
-    //     SubsystemManager.GetInstances(displays);
+    public static void SetEnabled(bool _active)
+    {
+        displays.Clear();
+        SubsystemManager.GetInstances(displays);
 
-    //     foreach (XRDisplaySubsystem system in displays)
-    //     {
-    //         if (_active)
-    //         {
-    //             system.Start();
-    //         }
-    //         else
-    //         {
-    //             system.Stop();
-    //         }
-    //     }
-    // }
+        foreach (XRDisplaySubsystem system in displays)
+        {
+            if (_active)
+            {
+                system.Start();
+            }
+            else
+            {
+                system.Stop();
+            }
+        }
+    }
 
-    // public static bool IsEnabled()
-    // {
-    //     displays.Clear();
-    //     SubsystemManager.GetInstances(displays);
+    public static bool IsEnabled()
+    {
+        displays.Clear();
+        SubsystemManager.GetInstances(displays);
 
-    //     foreach (XRDisplaySubsystem system in displays)
-    //     {
-    //         if (system.running)
-    //         {
-    //             return true;
-    //         }
-    //     }
+        foreach (XRDisplaySubsystem system in displays)
+        {
+            if (system.running)
+            {
+                return true;
+            }
+        }
 
-    //     return false;
-    // }
+        return false;
+    }
 
     public static bool VRIsPresent()
     {
