@@ -22,6 +22,8 @@ public class VrRig : MonoBehaviour
         bool isVR = GameManager.mode == Mode.VR;
         gameObject.SetActive(isVR);
 
+        VrHelper.SetEnabled(true);
+
         if (instance == null)
         {
             instance = this;
